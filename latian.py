@@ -51,12 +51,12 @@ def listBarang():
 
     # selection sort
     for x in range(max-1):
+        minIdx = x
         for y in range(x+1, max):
             if data[x][2] > data[y][2]:
-                temp = data[x]
-                data[x] = data[y]
-                data[y] = temp
-
+                x = y
+        data[y], data[x] = data[x], data[y]
+        
     # insertion versi ppt
     # for x in range(1, max, 1):
     #     for y in range(x, 0, -1):
@@ -73,10 +73,6 @@ def listBarang():
     #             data[y+1] = data[y]
     #             data[y] = temp
 
-    # bubble versi sendiri
-    #             data[y][0], data[y+1][0] = data[y+1][0], data[y][0]
-    #             data[y][1], data[y+1][1] = data[y+1][1], data[y][1]
-    #             data[y][2], data[y+1][2] = data[y+1][2], data[y][2]
     print(data)
     file1.close()
     menu()
@@ -97,11 +93,3 @@ def menu():
 
 
 menu()
-# n = 4
-# def coba():
-#     for x in range(1, n, 1):
-#         # print(x)
-#         for y in range(x, 0, -1):
-#             print(y, " ", y-1)
-#
-# coba()
